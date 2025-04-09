@@ -1,4 +1,18 @@
 {
+  "tasks": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''"
+  },
+  "imports": {
+    "modern-normalize": "npm:modern-normalize@^3.0.1",
+    "@sveltejs/adapter-auto": "npm:@sveltejs/adapter-auto@^4.0.0",
+    "@sveltejs/kit": "npm:@sveltejs/kit@^2.16.0",
+    "@sveltejs/vite-plugin-svelte": "npm:@sveltejs/vite-plugin-svelte@^5.0.0",
+    "svelte": "npm:svelte@^5.0.0",
+    "vite": "npm:vite@^6.2.5"
+  },
   "fmt": {
     "useTabs": false,
     "semiColons": true,
