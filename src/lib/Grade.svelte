@@ -14,7 +14,7 @@
 <div
   class={`${
     colorVariants[value]
-  } p-2 rounded-lg size-8 flex justify-center items-center`}
+  } p-2 rounded-lg size-8 flex justify-center items-center hover:scale-125 duration-100`}
 >
   <span class="font-semibold">{value}</span>
 </div>
