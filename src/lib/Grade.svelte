@@ -1,20 +1,37 @@
 <script>
   const colorVariants = {
-    1: "bg-red-600 hover:bg-red-700",
-    2: "bg-orange-500 hover:bg-orange-600",
-    3: "bg-yellow-300 hover:bg-yellow-400",
-    4: "bg-lime-400 hover:bg-lime-500",
-    5: "bg-green-600 hover:bg-green-700",
-    6: "bg-blue-600 hover:bg-blue-700",
+    1: "red",
+    2: "orange",
+    3: "yellow",
+    4: "lime",
+    5: "green",
+    6: "blue",
   };
 
   let { value } = $props();
 </script>
 
-<div
-  class={`${
-    colorVariants[value]
-  } p-2 rounded-lg size-8 flex justify-center items-center hover:scale-125 duration-100`}
->
-  <span class="font-semibold">{value}</span>
+<div class="tile" style:background-color={colorVariants[value]}>
+  <span>{value}</span>
 </div>
+
+<style>
+  .tile {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  .tile:hover {
+    transform: scale(1.25);
+  }
+
+  span {
+    font-weight: 700;
+  }
+</style>

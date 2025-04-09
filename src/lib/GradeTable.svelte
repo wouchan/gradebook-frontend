@@ -18,26 +18,63 @@
 </script>
 
 {#snippet gradeRow(grades)}
-  <div class="flex gap-2">
+  <div class="grade-row">
     {#each grades as grade}
       <Grade value={grade} />
     {/each}
   </div>
 {/snippet}
 
-<div class="table w-full">
-  <div class="table-header-group">
-    <div class="table-row">
-      <div class="table-cell text-left ...">Uczeń</div>
-      <div class="table-cell text-left ...">Oceny</div>
-    </div>
-  </div>
-  <div class="table-row-group">
-    {#each data as datum}
-      <div class="table-row">
-        <div class="table-cell text-left ...">{datum.name}</div>
-        <div class="table-cell text-left ...">{@render gradeRow(datum.grades)}</div>
-      </div>
-    {/each}
-  </div>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <td>Uczeń</td>
+        <td>Oceny</td>
+      </tr>
+    </thead>
+    <tbody>
+      {#each data as datum}
+        <tr>
+          <td>{datum.name}</td>
+          <td>{@render gradeRow(datum.grades)}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
 </div>
+
+<style>
+  .container {
+    border: 3px solid #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    padding: 0.25rem;
+  }
+
+  thead td {
+    font-weight: 600;
+    background-color: #f0f0f0;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #fafafa;
+  }
+
+  .grade-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>

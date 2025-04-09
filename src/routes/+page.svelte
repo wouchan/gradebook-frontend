@@ -2,6 +2,13 @@
   import GradeTable from "../lib/GradeTable.svelte";
 </script>
 
-<div class="max-w-1600px">
+<main>
   <GradeTable />
-</div>
+</main>
+
+<style>
+  main {
+    max-width: 1600px;
+    margin-top: 1rem;
+  }
+</style>
