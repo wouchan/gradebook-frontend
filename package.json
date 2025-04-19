@@ -2,5 +2,8 @@
   "name": "gradebook-frontend",
   "private": true,
   "version": "0.0.1",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@iconify/svelte": "^4.2.0"
+  }
 }
