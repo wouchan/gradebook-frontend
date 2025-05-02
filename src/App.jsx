@@ -1,33 +1,77 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./hooks/useAuth";
+import Layout from "./components/layout/Layout";
+import ProtectedRoute from "./components/layout/ProtectedRoute";
+
+// Pages
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+
+// Student Pages
+import StudentDashboard from "./pages/student/Dashboard";
+import StudentGrades from "./pages/student/Grades";
+import StudentSubjects from "./pages/student/Subjects";
+
+// Teacher Pages
+import TeacherDashboard from "./pages/teacher/Dashboard";
+import TeacherClasses from "./pages/teacher/Classes";
+
+// Admin Pages
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminSubjects from "./pages/admin/Subjects";
+import AdminClasses from "./pages/admin/Classes";
+import AdminGrades from "./pages/admin/Grades";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      div<h1 className="font-bold">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+      {/* Public routes */}
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
+
+        {/* Student routes */}
+        <Route element={<ProtectedRoute allowedRoles={["student"]} />}>
+          <Route path="student">
+            <Route path="dashboard" element={<StudentDashboard />} />
+            <Route path="grades" element={<StudentGrades />} />
+            <Route path="subjects" element={<StudentSubjects />} />
+          </Route>
+        </Route>
+
+        {/* Teacher routes */}
+        <Route element={<ProtectedRoute allowedRoles={["teacher"]} />}>
+          <Route path="teacher">
+            <Route path="dashboard" element={<TeacherDashboard />} />
+            <Route path="classes" element={<TeacherClasses />} />
+          </Route>
+        </Route>
+
+        {/* Admin routes */}
+        <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
+          <Route path="admin">
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="subjects" element={<AdminSubjects />} />
+            <Route path="classes" element={<AdminClasses />} />
+            <Route path="grades" element={<AdminGrades />} />
+          </Route>
+        </Route>
+
+        {/* Catch-all route */}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
