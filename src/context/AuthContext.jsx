@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
-    initAuth();
+    initAuth().then();
   }, []);
 
   const handleLogin = async (credentials) => {
