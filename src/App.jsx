@@ -11,7 +11,6 @@ import NotFound from "./pages/NotFound";
 // Student Pages
 import StudentDashboard from "./pages/student/Dashboard";
 import StudentGrades from "./pages/student/Grades";
-import StudentSubjects from "./pages/student/Subjects";
 
 // Teacher Pages
 import TeacherDashboard from "./pages/teacher/Dashboard";
@@ -46,7 +45,6 @@ function App() {
           <Route path="student">
             <Route path="dashboard" element={<StudentDashboard />} />
             <Route path="grades" element={<StudentGrades />} />
-            <Route path="subjects" element={<StudentSubjects />} />
           </Route>
         </Route>
 

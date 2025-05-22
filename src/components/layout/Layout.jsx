@@ -9,7 +9,7 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer className="bg-gray-100 py-4 text-center text-gray-600">
-        © {new Date().getFullYear()} School Gradebook System
+        © {new Date().getFullYear()} Gradebook System
       </footer>
     </div>
   );
