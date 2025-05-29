@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useRole } from "../hooks/useRole";
+import { useEffect } from "react";
 
 const Home = () => {
   const { user } = useAuth();
@@ -8,15 +9,17 @@ const Home = () => {
   const navigate = useNavigate();
 
   // Redirect authenticated users to their respective dashboards
-  if (user) {
-    if (isStudent) {
-      navigate("/student/dashboard");
-    } else if (isTeacher) {
-      navigate("/teacher/dashboard");
-    } else if (isAdmin) {
-      navigate("/admin/dashboard");
+  useEffect(() => {
+    if (user) {
+      if (isStudent) {
+        navigate("/student/dashboard");
+      } else if (isTeacher) {
+        navigate("/teacher/dashboard");
+      } else if (isAdmin) {
+        navigate("/admin/dashboard");
+      }
     }
-  }
+  }, []);
 
   return (
     <div className="text-center">
