@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const Grades = () => {
   const { user } = useAuth();
+  const [subjectData, setSubjectData] = useState([]);
 
   function groupGradesBySubject(gradesArray) {
     const grouped = {};
@@ -20,12 +21,10 @@ const Grades = () => {
 
     // Convert to array of objects
     return Object.keys(grouped).map((name) => ({
-      name: name,
-      grade: grouped[name],
+      name,
+      grades: grouped[name],
     }));
   }
-
-  const [subjectData, setSubjectData] = useState([]);
 
   useEffect(() => {
     const fetchGrades = async () => {

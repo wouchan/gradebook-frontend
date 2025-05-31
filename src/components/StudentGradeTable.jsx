@@ -4,11 +4,11 @@ import Grade from "./Grade";
 const StudentsGradeTable = ({ students }) => {
   const [sortedStudents, setSortedStudents] = useState([]);
 
-  // Sort students by surname alphabetically
+  // Sort students by last name alphabetically
   useEffect(() => {
     if (students && students.length) {
       const sorted = [...students].sort((a, b) =>
-        a.surname.localeCompare(b.surname),
+        a.lastName.localeCompare(b.lastName),
       );
       setSortedStudents(sorted);
     }
@@ -39,9 +39,9 @@ const StudentsGradeTable = ({ students }) => {
             >
               <td className="py-3 px-6 text-left">{index + 1}</td>
               <td className="py-3 px-6 text-left font-medium">
-                {student.surname}
+                {student.lastName}
               </td>
-              <td className="py-3 px-6 text-left">{student.name}</td>
+              <td className="py-3 px-6 text-left">{student.firstName}</td>
               <td className="py-3 px-6">
                 <div className="flex flex-wrap gap-2">
                   {student.grades &&
@@ -60,9 +60,9 @@ const StudentsGradeTable = ({ students }) => {
 
 // Example usage:
 // const studentData = [
-//   { name: "John", surname: "Doe", grades: [3, 4, 5] },
-//   { name: "Jane", surname: "Smith", grades: [5, 6, 4] },
-//   { name: "Alex", surname: "Brown", grades: [2, 3, 1] }
+//   { firstName: "John", lastName: "Doe", grades: [3, 4, 5] },
+//   { firstName: "Jane", lastName: "Smith", grades: [5, 6, 4] },
+//   { firstName: "Alex", lastName: "Brown", grades: [2, 3, 1] }
 // ];
 // <StudentsTable students={studentData} />
 

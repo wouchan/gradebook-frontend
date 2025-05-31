@@ -15,6 +15,7 @@ import StudentGrades from "./pages/student/Grades";
 // Teacher Pages
 import TeacherDashboard from "./pages/teacher/Dashboard";
 import TeacherClasses from "./pages/teacher/Classes";
+import TeacherGrades from "./pages/teacher/Grades";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -53,6 +54,7 @@ function App() {
           <Route path="teacher">
             <Route path="dashboard" element={<TeacherDashboard />} />
             <Route path="classes" element={<TeacherClasses />} />
+            <Route path="classes/5" element={<TeacherGrades />} />
           </Route>
         </Route>
 

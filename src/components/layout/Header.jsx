@@ -44,7 +44,10 @@ const Header = () => {
                   Strona Powitalna
                 </Link>
                 <Link to="/teacher/classes" className="hover:underline">
-                  My Classes
+                  Moje Kursy
+                </Link>
+                <Link to="/teacher/classes/5" className="hover:underline">
+                  TEST
                 </Link>
               </>
             )}

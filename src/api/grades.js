@@ -5,7 +5,7 @@ export const getStudentGrades = async (studentId) => {
   return response.data;
 };
 
-export const getTeacherClassGrades = async (classId) => {
+export const getClassGrades = async (classId) => {
   const response = await apiClient.get(`/grades/class/${classId}`);
   return response.data;
 };
