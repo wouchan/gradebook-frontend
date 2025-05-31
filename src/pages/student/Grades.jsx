@@ -2,23 +2,26 @@ import { useEffect } from "react";
 import SubjectGradeTable from "../../components/SubjectGradeTable";
 import { getStudentGrades } from "../../api/grades";
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 
 const Grades = () => {
+  const { user } = useAuth();
+
   function groupGradesBySubject(gradesArray) {
     const grouped = {};
 
     // Group grades by subject
     gradesArray.forEach((item) => {
-      if (!grouped[item.subjectName]) {
-        grouped[item.subjectName] = [];
+      if (!grouped[item.class.name]) {
+        grouped[item.class.name] = [];
       }
-      grouped[item.subjectName].push(item.grades);
+      grouped[item.class.name].push(item.grade.gradeValue);
     });
 
     // Convert to array of objects
-    return Object.keys(grouped).map((subjectName) => ({
-      name: subjectName,
-      grades: grouped[subjectName],
+    return Object.keys(grouped).map((name) => ({
+      name: name,
+      grade: grouped[name],
     }));
   }
 
@@ -26,7 +29,7 @@ const Grades = () => {
 
   useEffect(() => {
     const fetchGrades = async () => {
-      const grades = await getStudentGrades(1);
+      const grades = await getStudentGrades(user.studentData.id);
       setSubjectData(groupGradesBySubject(grades));
     };
 

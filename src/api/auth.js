@@ -33,12 +33,12 @@ export const checkAuthStatus = async () => {
       return null;
     }
 
-    const response = await apiClient.get("/auth/status", {
+    const response = await apiClient.get("/auth/me", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    return response.data.user;
+    return response.data;
   } catch (error) {
     localStorage.removeItem("token");
     return null;

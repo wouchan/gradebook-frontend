@@ -38,8 +38,8 @@ const SubjectGradeTable = ({ subjects }) => {
               </td>
               <td className="py-3 px-6">
                 <div className="flex flex-wrap gap-2">
-                  {subject.grades &&
-                    subject.grades.map((grade, gradeIndex) => (
+                  {subject.grade &&
+                    subject.grade.map((grade, gradeIndex) => (
                       <Grade key={gradeIndex} value={grade} />
                     ))}
                 </div>

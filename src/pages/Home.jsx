@@ -23,13 +23,12 @@ const Home = () => {
 
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-bold mb-6">Welcome to School Gradebook</h1>
-      <p className="mb-8">Please log in to access your account.</p>
+      <h1 className="text-3xl font-bold mb-6">Witaj w systemie GradeBook</h1>
       <button
         onClick={() => navigate("/login")}
         className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md"
       >
-        Log In
+        Zaloguj się
       </button>
     </div>
   );

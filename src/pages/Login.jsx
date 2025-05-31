@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [error, setError] = useState("");
@@ -55,13 +55,13 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 mb-2" htmlFor="username">
-            Username
+            Email
           </label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={credentials.username}
+            id="email"
+            name="email"
+            value={credentials.email}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md"
             required
