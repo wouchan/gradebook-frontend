@@ -1,7 +1,7 @@
 import apiClient from "./client";
 
 export const getTeacherClasses = async (teacherId) => {
-  const response = await apiClient.get(`/classes/teacher/${teacherId}`);
+  const response = await apiClient.get(`/teachers/${teacherId}`);
   return response.data;
 };
 

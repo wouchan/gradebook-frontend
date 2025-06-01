@@ -10,11 +10,6 @@ export const getClassGrades = async (classId) => {
   return response.data;
 };
 
-export const getAllGrades = async (filters) => {
-  const response = await apiClient.get("/grades", { params: filters });
-  return response.data;
-};
-
 export const updateGrade = async (gradeId, gradeData) => {
   const response = await apiClient.put(`/grades/${gradeId}`, gradeData);
   return response.data;

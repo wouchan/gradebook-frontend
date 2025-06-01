@@ -54,7 +54,7 @@ function App() {
           <Route path="teacher">
             <Route path="dashboard" element={<TeacherDashboard />} />
             <Route path="classes" element={<TeacherClasses />} />
-            <Route path="classes/5" element={<TeacherGrades />} />
+            <Route path="classes/:classId" element={<TeacherGrades />} />
           </Route>
         </Route>
 

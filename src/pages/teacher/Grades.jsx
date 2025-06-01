@@ -3,10 +3,12 @@ import StudentGradeTable from "../../components/StudentGradeTable";
 import { getClassGrades } from "../../api/grades";
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { useParams } from "react-router";
 
 const Grades = () => {
   const { user } = useAuth();
   const [subjectData, setSubjectData] = useState([]);
+  const { classId } = useParams();
 
   function groupGradesByStudent(gradeRecords) {
     const studentMap = new Map();
@@ -31,9 +33,10 @@ const Grades = () => {
     // Convert map to array
     return Array.from(studentMap.values());
   }
+
   useEffect(() => {
     const fetchGrades = async () => {
-      const grades = await getClassGrades(5);
+      const grades = await getClassGrades(classId);
       setSubjectData(groupGradesByStudent(grades));
     };
 
