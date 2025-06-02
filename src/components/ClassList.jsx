@@ -5,7 +5,7 @@ const ClassList = ({ classes }) => {
   if (classes.length === 0) {
     return (
       <div className="p-6 text-center text-gray-500">
-        <p>No classes assigned yet.</p>
+        <p>Brak przydzielonych kursów.</p>
       </div>
     );
   }
@@ -13,10 +13,8 @@ const ClassList = ({ classes }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="p-4 border-b border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-900">My Classes</h2>
-        <p className="text-sm text-gray-600">
-          {classes.length} class{classes.length !== 1 ? "es" : ""}
-        </p>
+        <h2 className="text-lg font-semibold text-gray-900">Moje Kursy</h2>
+        <p className="text-sm text-gray-600">Liczba kursów: {classes.length}</p>
       </div>
 
       <div className="divide-y divide-gray-200">

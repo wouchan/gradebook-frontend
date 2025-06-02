@@ -19,9 +19,7 @@ import TeacherGrades from "./pages/teacher/Grades";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/Dashboard";
-import AdminSubjects from "./pages/admin/Subjects";
-import AdminClasses from "./pages/admin/Classes";
-import AdminGrades from "./pages/admin/Grades";
+import AdminUsers from "./pages/admin/Users";
 
 function App() {
   const { loading } = useAuth();
@@ -62,9 +60,7 @@ function App() {
         <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
           <Route path="admin">
             <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="subjects" element={<AdminSubjects />} />
-            <Route path="classes" element={<AdminClasses />} />
-            <Route path="grades" element={<AdminGrades />} />
+            <Route path="users" element={<AdminUsers />} />
           </Route>
         </Route>
 

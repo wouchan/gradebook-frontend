@@ -7,13 +7,6 @@ export const formatDate = (dateString) => {
   }).format(date);
 };
 
-export const calculateAverage = (grades) => {
-  if (!grades || grades.length === 0) return 0;
-
-  const sum = grades.reduce((total, grade) => total + grade.value, 0);
-  return (sum / grades.length).toFixed(2);
-};
-
 export const getGradeColor = (grade) => {
   if (grade >= 90) return "text-green-600";
   if (grade >= 80) return "text-green-500";

@@ -54,14 +54,8 @@ const Header = () => {
                 <Link to="/admin/dashboard" className="hover:underline">
                   Strona Powitalna
                 </Link>
-                <Link to="/admin/subjects" className="hover:underline">
-                  Subjects
-                </Link>
-                <Link to="/admin/classes" className="hover:underline">
-                  Classes
-                </Link>
-                <Link to="/admin/grades" className="hover:underline">
-                  All Grades
+                <Link to="/admin/users" className="hover:underline">
+                  Użytkownicy
                 </Link>
               </>
             )}
