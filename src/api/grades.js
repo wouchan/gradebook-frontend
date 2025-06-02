@@ -14,3 +14,8 @@ export const updateGrade = async (gradeId, gradeData) => {
   const response = await apiClient.put(`/grades/${gradeId}`, gradeData);
   return response.data;
 };
+
+export const createGrade = async (gradeData) => {
+  const response = await apiClient.post(`/grades`, gradeData);
+  return response.data;
+};

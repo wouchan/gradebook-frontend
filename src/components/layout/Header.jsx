@@ -46,9 +46,6 @@ const Header = () => {
                 <Link to="/teacher/classes" className="hover:underline">
                   Moje Kursy
                 </Link>
-                <Link to="/teacher/classes/5" className="hover:underline">
-                  TEST
-                </Link>
               </>
             )}
 

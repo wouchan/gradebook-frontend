@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Grade from "./Grade";
+import CreateGradeDialog from "./CreateGradeDialog";
 
 const StudentsGradeTable = ({ students }) => {
   const [sortedStudents, setSortedStudents] = useState([]);
@@ -43,11 +44,14 @@ const StudentsGradeTable = ({ students }) => {
               </td>
               <td className="py-3 px-6 text-left">{student.firstName}</td>
               <td className="py-3 px-6">
-                <div className="flex flex-wrap gap-2">
-                  {student.grades &&
-                    student.grades.map((grade, gradeIndex) => (
-                      <Grade key={gradeIndex} value={grade} />
-                    ))}
+                <div className="flex justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {student.grades &&
+                      student.grades.map((grade, gradeIndex) => (
+                        <Grade key={gradeIndex} value={grade} />
+                      ))}
+                  </div>
+                  <CreateGradeDialog enrollmentId={student.enrollmentId} />
                 </div>
               </td>
             </tr>

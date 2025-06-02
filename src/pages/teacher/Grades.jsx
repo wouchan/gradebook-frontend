@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import StudentGradeTable from "../../components/StudentGradeTable";
 import { getClassGrades } from "../../api/grades";
 import { useState } from "react";
-import { useAuth } from "../../hooks/useAuth";
 import { useParams } from "react-router";
 
 const Grades = () => {
-  const { user } = useAuth();
   const [subjectData, setSubjectData] = useState([]);
   const { classId } = useParams();
 
@@ -15,12 +13,14 @@ const Grades = () => {
 
     // Group grades by student
     gradeRecords.forEach((record) => {
-      const { grade, student } = record;
+      const { grade, enrollment, student } = record;
       const { firstName, lastName } = student;
+      const { id } = enrollment;
       const key = `${firstName}_${lastName}`;
 
       if (!studentMap.has(key)) {
         studentMap.set(key, {
+          enrollmentId: id,
           firstName,
           lastName,
           grades: [],
