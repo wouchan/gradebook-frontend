@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Grade from "./Grade";
+import GradeWithDelete from "./GradeWithDelete";
 import CreateGradeDialog from "./CreateGradeDialog";
 
 const StudentsGradeTable = ({ students }) => {
@@ -48,7 +48,11 @@ const StudentsGradeTable = ({ students }) => {
                   <div className="flex flex-wrap gap-2">
                     {student.grades &&
                       student.grades.map((grade, gradeIndex) => (
-                        <Grade key={gradeIndex} value={grade} />
+                        <GradeWithDelete
+                          key={gradeIndex}
+                          value={grade.value}
+                          gradeId={grade.id}
+                        />
                       ))}
                   </div>
                   <CreateGradeDialog enrollmentId={student.enrollmentId} />

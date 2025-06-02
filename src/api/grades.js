@@ -19,3 +19,8 @@ export const createGrade = async (gradeData) => {
   const response = await apiClient.post(`/grades`, gradeData);
   return response.data;
 };
+
+export const deleteGrade = async (gradeId) => {
+  const response = await apiClient.delete(`/grades/${gradeId}`);
+  return response.data;
+};

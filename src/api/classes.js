@@ -9,3 +9,8 @@ export const getAllClasses = async () => {
   const response = await apiClient.get("/classes");
   return response.data;
 };
+
+export const createClass = async (classData) => {
+  const response = await apiClient.post(`/classes`, classData);
+  return response.data;
+};

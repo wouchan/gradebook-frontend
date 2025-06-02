@@ -27,7 +27,9 @@ const Grades = () => {
         });
       }
 
-      studentMap.get(key).grades.push(grade.gradeValue);
+      studentMap
+        .get(key)
+        .grades.push({ id: grade.id, value: grade.gradeValue });
     });
 
     // Convert map to array
