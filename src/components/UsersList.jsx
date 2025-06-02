@@ -1,4 +1,23 @@
 import { userTypeToString } from "../utils/helpers";
+import { deleteUser } from "../api/users";
+import { X } from "lucide-react";
+
+const UserDeleteButton = ({ userId }) => {
+  const handleDeleteClick = async () => {
+    await deleteUser(userId);
+    location.reload();
+  };
+
+  return (
+    <button
+      onClick={handleDeleteClick}
+      className="w-6 h-6 cursor-pointer bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-all duration-200 transform group-hover:scale-100 scale-75 shadow-lg z-10"
+      aria-label={`Delete user ${userId}`}
+    >
+      <X className="w-3 h-3" />
+    </button>
+  );
+};
 
 const UsersList = ({ users }) => {
   if (users.length === 0) {
@@ -22,7 +41,7 @@ const UsersList = ({ users }) => {
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer transition-colors duration-150 group"
+            className="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors duration-150 group"
           >
             <div className="flex-1">
               <h3 className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
@@ -32,6 +51,7 @@ const UsersList = ({ users }) => {
                 </span>
               </h3>
             </div>
+            <UserDeleteButton userId={user.id} />
           </div>
         ))}
       </div>

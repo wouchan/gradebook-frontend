@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">Strona Powitalna</h1>
-      <p className="mb-4">Witaj, {user?.name}!</p>
+      <p className="mb-4">Witaj, {user?.firstName}!</p>
     </div>
   );
 };
