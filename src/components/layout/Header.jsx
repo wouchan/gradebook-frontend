@@ -57,6 +57,9 @@ const Header = () => {
                 <Link to="/admin/users" className="hover:underline">
                   Użytkownicy
                 </Link>
+                <Link to="/admin/classes" className="hover:underline">
+                  Kursy
+                </Link>
               </>
             )}
           </nav>

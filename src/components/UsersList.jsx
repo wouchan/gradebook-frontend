@@ -1,3 +1,5 @@
+import { userTypeToString } from "../utils/helpers";
+
 const UsersList = ({ users }) => {
   if (users.length === 0) {
     return (
@@ -24,7 +26,10 @@ const UsersList = ({ users }) => {
           >
             <div className="flex-1">
               <h3 className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
-                {user.firstName} {user.lastName}
+                {user.firstName} {user.lastName}{" "}
+                <span className="text-sm text-gray-600">
+                  {userTypeToString(user.userType)}
+                </span>
               </h3>
             </div>
           </div>

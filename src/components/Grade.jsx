@@ -1,5 +1,3 @@
-import React from "react";
-
 const Grade = ({ value }) => {
   // Ensure value is between 1 and 6
   const gradeValue = Math.min(Math.max(parseInt(value) || 1, 1), 6);

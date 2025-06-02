@@ -13,13 +13,14 @@ const ClassList = ({ classes }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="p-4 border-b border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-900">Wszystkie Kursy</h2>
+        <h2 className="text-lg font-semibold text-gray-900">Moje Kursy</h2>
         <p className="text-sm text-gray-600">Liczba kursów: {classes.length}</p>
       </div>
 
       <div className="divide-y divide-gray-200">
         {classes.map((classItem) => (
-          <div
+          <Link
+            to={`/teacher/classes/${classItem.id}`}
             key={classItem.id}
             className="flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer transition-colors duration-150 group"
           >
@@ -28,7 +29,9 @@ const ClassList = ({ classes }) => {
                 {classItem.name}
               </h3>
             </div>
-          </div>
+
+            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+          </Link>
         ))}
       </div>
     </div>

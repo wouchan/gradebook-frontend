@@ -14,3 +14,15 @@ export const getGradeColor = (grade) => {
   if (grade >= 60) return "text-orange-500";
   return "text-red-500";
 };
+
+export const userTypeToString = (userType) => {
+  if (userType === "admin") {
+    return "administrator";
+  } else if (userType === "teacher") {
+    return "nauczyciel";
+  } else if (userType === "student") {
+    return "student";
+  } else {
+    return "brak roli";
+  }
+};

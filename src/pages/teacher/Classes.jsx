@@ -1,7 +1,7 @@
 import { getTeacherClasses } from "../../api/classes";
 import { useState } from "react";
 import { useEffect } from "react";
-import ClassList from "../../components/ClassList";
+import TeacherClassList from "../../components/TeacherClassList";
 import { useAuth } from "../../hooks/useAuth";
 
 const Classes = () => {
@@ -19,8 +19,8 @@ const Classes = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">My Classes</h1>
-      <ClassList classes={classData} />
+      <h1 className="text-2xl font-bold mb-6">Moje kursy</h1>
+      <TeacherClassList classes={classData} />
     </div>
   );
 };

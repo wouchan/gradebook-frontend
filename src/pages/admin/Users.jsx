@@ -1,6 +1,7 @@
 import { getUsers } from "../../api/users";
 import UsersList from "../../components/UsersList";
 import { useState, useEffect } from "react";
+import CreateUserDialog from "../../components/CreateUserDialog";
 
 const Users = () => {
   const [usersData, setUsersData] = useState([]);
@@ -15,9 +16,10 @@ const Users = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-bold mb-6">Użytkownicy</h1>
       <UsersList users={usersData} />
+      <CreateUserDialog />
     </div>
   );
 };

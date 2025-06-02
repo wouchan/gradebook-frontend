@@ -20,6 +20,7 @@ import TeacherGrades from "./pages/teacher/Grades";
 // Admin Pages
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminUsers from "./pages/admin/Users";
+import AdminClasses from "./pages/admin/Classes";
 
 function App() {
   const { loading } = useAuth();
@@ -61,6 +62,7 @@ function App() {
           <Route path="admin">
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="users" element={<AdminUsers />} />
+            <Route path="classes" element={<AdminClasses />} />
           </Route>
         </Route>
 
