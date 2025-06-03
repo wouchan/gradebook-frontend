@@ -44,7 +44,7 @@ const Login = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Logowanie</h1>
 
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -70,7 +70,7 @@ const Login = () => {
 
         <div className="mb-6">
           <label className="block text-gray-700 mb-2" htmlFor="password">
-            Password
+            Hasło
           </label>
           <input
             type="password"
@@ -87,7 +87,7 @@ const Login = () => {
           type="submit"
           className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
         >
-          Login
+          Loguj
         </button>
       </form>
     </div>

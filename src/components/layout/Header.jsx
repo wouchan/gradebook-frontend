@@ -23,7 +23,7 @@ const Header = () => {
           <nav className="hidden md:flex space-x-4 align-self-end">
             {!user && (
               <Link to="/login" className="hover:underline">
-                Login
+                Logowanie
               </Link>
             )}
 

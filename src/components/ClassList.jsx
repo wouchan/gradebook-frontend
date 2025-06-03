@@ -1,5 +1,22 @@
-import { ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { deleteClass } from "../api/classes";
+import { X } from "lucide-react";
+
+const ClassDeleteButton = ({ userId: classId }) => {
+  const handleDeleteClick = async () => {
+    await deleteClass(classId);
+    location.reload();
+  };
+
+  return (
+    <button
+      onClick={handleDeleteClick}
+      className="w-6 h-6 cursor-pointer bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-all duration-200 transform group-hover:scale-100 scale-75 shadow-lg z-10"
+      aria-label={`Delete class ${classId}`}
+    >
+      <X className="w-3 h-3" />
+    </button>
+  );
+};
 
 const ClassList = ({ classes }) => {
   if (classes.length === 0) {
@@ -28,6 +45,7 @@ const ClassList = ({ classes }) => {
                 {classItem.name}
               </h3>
             </div>
+            <ClassDeleteButton classId={classItem.id} />
           </div>
         ))}
       </div>

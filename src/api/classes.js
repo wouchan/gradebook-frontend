@@ -14,3 +14,8 @@ export const createClass = async (classData) => {
   const response = await apiClient.post(`/classes`, classData);
   return response.data;
 };
+
+export const deleteClass = async (classId) => {
+  const response = await apiClient.delete(`/classes/${classId}`);
+  return response.data;
+};
